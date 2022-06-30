@@ -83,15 +83,12 @@
       ]
     },
     {
-      "description": "ctrl remap",
+      "description": "ctrl esc remap",
       "manipulators": [
         {
           "from": {
-            "key_code": "right_command",
+            "key_code": "caps_lock",
             "modifiers": {
-              "mandatory": [
-                "right_shift"
-              ],
               "optional": [
                 "any"
               ]
@@ -99,26 +96,13 @@
           },
           "to": [
             {
-              "key_code": "right_control"
+              "key_code": "left_control",
+              "lazy": true
             }
           ],
-          "type": "basic"
-        },
-        {
-          "from": {
-            "key_code": "left_command",
-            "modifiers": {
-              "mandatory": [
-                "left_shift"
-              ],
-              "optional": [
-                "any"
-              ]
-            }
-          },
-          "to": [
+          "to_if_alone": [
             {
-              "key_code": "left_control"
+              "key_code": "escape"
             }
           ],
           "type": "basic"
@@ -193,7 +177,8 @@
             }
           ],
           "type": "basic"
-        },{
+        },
+        {
           "from": {
             "key_code": "s",
             "modifiers": {
@@ -214,7 +199,8 @@
             }
           ],
           "type": "basic"
-        },{
+        },
+        {
           "from": {
             "key_code": "a",
             "modifiers": {
@@ -301,7 +287,8 @@
             }
           ],
           "type": "basic"
-        },{
+        },
+        {
           "from": {
             "key_code": "l",
             "modifiers": {
@@ -322,7 +309,8 @@
             }
           ],
           "type": "basic"
-        },{
+        },
+        {
           "from": {
             "key_code": ";",
             "modifiers": {
