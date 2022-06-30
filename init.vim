@@ -1,5 +1,8 @@
 call plug#begin()
-        Plug 'navarasu/onedark.nvim'
+Plug 'ayu-theme/ayu-vim'
+        Plug 'preservim/nerdtree'
+        Plug 'alessandroyorba/alduin'
+	Plug 'editorconfig/editorconfig-vim'
 	Plug 'nvim-lua/plenary.nvim'
 	Plug 'nvim-telescope/telescope.nvim'
 	Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -7,7 +10,9 @@ call plug#end()
 
 let mapleader = " "
 
-colorscheme onedark
+" theme
+set termguicolors     " enable true colors support
+colorscheme alduin
 
 set relativenumber
 
@@ -27,8 +32,8 @@ nnoremap <leader>fe <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope oldfiles<cr>
 nnoremap <leader>fs <cmd>Telescope search_history<cr>
 
-" :CocInstall coc-explorer
-nmap <space>e <Cmd>CocCommand explorer<CR>
+" nerdtree
+nmap <space>e <Cmd>NERDTreeFind<CR>
 
 
 
@@ -155,4 +160,4 @@ set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
 " Mappings for CoCList
 " Show all diagnostics.
-nnoremap <silent><nowait> <space>a  :<C-u>CocList diagnostics<cr>
+nnoremap <silent><nowait> <space>z  :<C-u>CocList diagnostics<cr>
