@@ -1,11 +1,13 @@
 call plug#begin()
-Plug 'ayu-theme/ayu-vim'
+	Plug 'Pocco81/AutoSave.nvim'
         Plug 'preservim/nerdtree'
         Plug 'alessandroyorba/alduin'
+	Plug 'psliwka/vim-smoothie'
 	Plug 'editorconfig/editorconfig-vim'
 	Plug 'nvim-lua/plenary.nvim'
 	Plug 'nvim-telescope/telescope.nvim'
 	Plug 'neoclide/coc.nvim', {'branch': 'release'}
+	Plug 'tpope/vim-fugitive'
 call plug#end()
 
 let mapleader = " "
@@ -34,7 +36,48 @@ nnoremap <leader>fs <cmd>Telescope search_history<cr>
 
 " nerdtree
 nmap <space>e <Cmd>NERDTreeFind<CR>
+:let g:NERDTreeWinSize=120
 
+
+
+nnoremap <leader>t <cmd>terminal<cr>
+
+
+"AutoSave
+"
+lua << EOF
+local autosave = require("autosave")
+
+autosave.setup(
+    {
+        enabled = true,
+        execution_message = "AutoSave: saved at " .. vim.fn.strftime("%H:%M:%S"),
+        events = {"InsertLeave", "TextChanged"},
+        conditions = {
+            exists = true,
+            filename_is_not = {},
+            filetype_is_not = {},
+            modifiable = true
+        },
+        write_all_buffers = false,
+        on_off_commands = true,
+        clean_command_line_interval = 0,
+        debounce_delay = 135
+    }
+)
+EOF
+
+" centers the current pane as the middle 2 of 4 imaginary columns
+" should be called in a window with a single pane
+
+ function CenterPane()
+   lefta vnew
+   wincmd w
+   exec 'vertical resize '. string(&columns * 0.75)
+ endfunction
+
+" optionally map it to a key:
+nnoremap <leader>c :call CenterPane()<cr>
 
 
 " TextEdit might fail if hidden is not set.
