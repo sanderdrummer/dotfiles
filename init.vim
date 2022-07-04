@@ -1,4 +1,5 @@
 call plug#begin()
+	Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
 	Plug 'Pocco81/AutoSave.nvim'
         Plug 'preservim/nerdtree'
         Plug 'alessandroyorba/alduin'
@@ -8,13 +9,18 @@ call plug#begin()
 	Plug 'nvim-telescope/telescope.nvim'
 	Plug 'neoclide/coc.nvim', {'branch': 'release'}
 	Plug 'tpope/vim-fugitive'
+	Plug 'windwp/nvim-autopairs'
 call plug#end()
 
 let mapleader = " "
 
 " theme
 set termguicolors     " enable true colors support
-colorscheme alduin
+let g:tokyonight_style = "night"
+
+colorscheme tokyonight
+
+
 
 set relativenumber
 
@@ -36,12 +42,25 @@ nnoremap <leader>fs <cmd>Telescope search_history<cr>
 
 " nerdtree
 nmap <space>e <Cmd>NERDTreeFind<CR>
-:let g:NERDTreeWinSize=120
+:let g:NERDTreeWinSize=80
 
 
 
 nnoremap <leader>t <cmd>terminal<cr>
 
+lua << EOF
+require("nvim-autopairs").setup {}
+EOF
+
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
 
 "AutoSave
 "
@@ -50,7 +69,7 @@ local autosave = require("autosave")
 
 autosave.setup(
     {
-        enabled = true,
+        enabled = false,
         execution_message = "AutoSave: saved at " .. vim.fn.strftime("%H:%M:%S"),
         events = {"InsertLeave", "TextChanged"},
         conditions = {
