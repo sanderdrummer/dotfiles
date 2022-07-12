@@ -22,7 +22,7 @@ colorscheme tokyonight
 
 
 
-set relativenumber
+set number relativenumber 
 
 " prettier
 " :CocInstall coc-prettier
