@@ -10,6 +10,8 @@ call plug#begin()
 	Plug 'neoclide/coc.nvim', {'branch': 'release'}
 	Plug 'tpope/vim-fugitive'
 	Plug 'windwp/nvim-autopairs'
+	Plug 'vim-airline/vim-airline'
+	Plug 'vim-airline/vim-airline-themes'
 call plug#end()
 
 let mapleader = " "
@@ -20,9 +22,9 @@ let g:tokyonight_style = "night"
 
 colorscheme tokyonight
 
+set number relativenumber
 
-
-set number relativenumber 
+let g:airline_theme='bubblegum'
 
 " prettier
 " :CocInstall coc-prettier
@@ -37,16 +39,21 @@ nnoremap <leader>ff <cmd>Telescope find_files<cr>
 nnoremap <C-p> <cmd>Telescope find_files<cr>
 nnoremap <C-e> <cmd>Telescope buffers<cr>
 nnoremap <leader>fe <cmd>Telescope buffers<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 nnoremap <leader>fh <cmd>Telescope oldfiles<cr>
 nnoremap <leader>fs <cmd>Telescope search_history<cr>
 
 " nerdtree
 nmap <space>e <Cmd>NERDTreeFind<CR>
-:let g:NERDTreeWinSize=80
+let g:NERDTreeWinSize=70
+let NERDTreeQuitOnOpen=1
+let NERDTreeShowHidden=1
 
 
 
-nnoremap <leader>t <cmd>terminal<cr>
+
+
+nnoremap <leader>t <cmd>!kitty &<cr>
 
 lua << EOF
 require("nvim-autopairs").setup {}
