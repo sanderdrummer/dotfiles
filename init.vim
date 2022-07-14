@@ -48,6 +48,8 @@ nmap <space>e <Cmd>NERDTreeFind<CR>
 let g:NERDTreeWinSize=70
 let NERDTreeQuitOnOpen=1
 let NERDTreeShowHidden=1
+" open on startup
+autocmd VimEnter * NERDTree
 
 
 
