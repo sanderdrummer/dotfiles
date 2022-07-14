@@ -1,0 +1,27 @@
+{
+  "windows": [
+    {
+      "panes": [
+        {
+          "shell_command": "nvim",
+          "focus": true
+        },
+        {
+          "shell_command": "p start"
+        },
+        {
+          "shell_command": ""
+        }
+      ],
+      "shell_command_before": [
+        "cd ~/Projects/project name"
+      ],
+      "layout": "main-horizontal",
+      "options": {
+        "main-pane-height": 320 
+      },
+      "window_name": "dev window"
+    }
+  ],
+  "session_name": "project name"
+}
