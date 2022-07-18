@@ -24,7 +24,11 @@ colorscheme tokyonight
 
 set number relativenumber
 
+"airline already shows the mode
 let g:airline_theme='bubblegum'
+:set noshowmode
+
+
 
 " prettier
 " :CocInstall coc-prettier
@@ -33,6 +37,12 @@ nnoremap <leader>f <cmd>CocCommand prettier.forceFormatDocument<cr>
 
 " Hihglight yanks
 au TextYankPost * silent! lua vim.highlight.on_yank()
+
+" cmd s for save
+noremap  <silent> <C-S>    :update<CR>
+vnoremap <silent> <C-S>    <C-C>:update<CR>
+inoremap <silent> <C-S>    <C-O>:update<CR>
+noremap  <silent> <leader>s    :update<CR>
 
 " cmd p
 nnoremap <leader>ff <cmd>Telescope find_files<cr>
@@ -48,10 +58,34 @@ nmap <space>e <Cmd>NERDTreeFind<CR>
 let g:NERDTreeWinSize=70
 let NERDTreeQuitOnOpen=1
 let NERDTreeShowHidden=1
-" open on startup
-autocmd VimEnter * NERDTree
 
-
+lua << EOF
+require('telescope').setup({
+  defaults = {
+    -- other defaults configuration here
+    path_dispaly={truncate = 2}
+  },
+  pickers = {
+    oldfiles = {
+      theme = "ivy",
+      previewer = false,
+    shorten_path = true,
+    },
+    buffers = {
+      theme = "ivy",
+    },
+    live_grep = {
+      theme = "ivy",
+    },
+    find_files = {
+      theme = "ivy",
+      previewer = false,
+      shorten_path = true,
+    }
+  },
+  -- other configuration values here
+})
+EOF
 
 
 
