@@ -12,9 +12,19 @@ call plug#begin()
 	Plug 'windwp/nvim-autopairs'
 	Plug 'vim-airline/vim-airline'
 	Plug 'vim-airline/vim-airline-themes'
+	Plug 'nvim-lua/plenary.nvim' 
+	Plug 'ThePrimeagen/harpoon'
 call plug#end()
 
 let mapleader = " "
+
+lua << EOF
+vim.keymap.set("n", "<leader>q",function() require("harpoon.mark").add_file() end , silent)
+vim.keymap.set("n", "<C-e>",function() require("harpoon.ui").toggle_quick_menu() end , silent)
+EOF
+
+set ignorecase
+set smartcase
 
 " theme
 set termguicolors     " enable true colors support
@@ -27,8 +37,6 @@ set number relativenumber
 "airline already shows the mode
 let g:airline_theme='bubblegum'
 :set noshowmode
-
-
 
 " prettier
 " :CocInstall coc-prettier
@@ -47,7 +55,6 @@ noremap  <silent> <leader>s    :update<CR>
 " cmd p
 nnoremap <leader>ff <cmd>Telescope find_files<cr>
 nnoremap <C-p> <cmd>Telescope find_files<cr>
-nnoremap <C-e> <cmd>Telescope buffers<cr>
 nnoremap <leader>fe <cmd>Telescope buffers<cr>
 nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 nnoremap <leader>fh <cmd>Telescope oldfiles<cr>
@@ -94,6 +101,7 @@ nnoremap <leader>t <cmd>!kitty &<cr>
 lua << EOF
 require("nvim-autopairs").setup {}
 EOF
+
 
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 
