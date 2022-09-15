@@ -2,7 +2,6 @@ call plug#begin()
 	Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
 	Plug 'Pocco81/AutoSave.nvim'
         Plug 'preservim/nerdtree'
-        Plug 'alessandroyorba/alduin'
 	Plug 'psliwka/vim-smoothie'
 	Plug 'editorconfig/editorconfig-vim'
 	Plug 'nvim-lua/plenary.nvim'
@@ -14,11 +13,17 @@ call plug#begin()
 	Plug 'vim-airline/vim-airline-themes'
 	Plug 'nvim-lua/plenary.nvim' 
 	Plug 'ThePrimeagen/harpoon'
+	Plug 'akinsho/toggleterm.nvim', {'tag' : '*'}
+	Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 call plug#end()
 
 let mapleader = " "
 
 lua << EOF
+require("toggleterm").setup{
+  open_mapping = [[<c-\>]],
+   }
+
 vim.keymap.set("n", "<leader>q",function() require("harpoon.mark").add_file() end , silent)
 vim.keymap.set("n", "<C-e>",function() require("harpoon.ui").toggle_quick_menu() end , silent)
 EOF
@@ -28,10 +33,7 @@ set smartcase
 
 " theme
 set termguicolors     " enable true colors support
-let g:tokyonight_style = "night"
-
-colorscheme tokyonight
-
+colorscheme tokyonight-night
 set number relativenumber
 
 "airline already shows the mode
@@ -59,6 +61,9 @@ nnoremap <leader>fe <cmd>Telescope buffers<cr>
 nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 nnoremap <leader>fh <cmd>Telescope oldfiles<cr>
 nnoremap <leader>fs <cmd>Telescope search_history<cr>
+
+" greatest remap ever ;)
+xnoremap <leader>p "_dP
 
 " nerdtree
 nmap <space>e <Cmd>NERDTreeFind<CR>
@@ -112,30 +117,6 @@ function! s:show_documentation()
     call CocAction('doHover')
   endif
 endfunction
-
-"AutoSave
-"
-lua << EOF
-local autosave = require("autosave")
-
-autosave.setup(
-    {
-        enabled = false,
-        execution_message = "AutoSave: saved at " .. vim.fn.strftime("%H:%M:%S"),
-        events = {"InsertLeave", "TextChanged"},
-        conditions = {
-            exists = true,
-            filename_is_not = {},
-            filetype_is_not = {},
-            modifiable = true
-        },
-        write_all_buffers = false,
-        on_off_commands = true,
-        clean_command_line_interval = 0,
-        debounce_delay = 135
-    }
-)
-EOF
 
 " centers the current pane as the middle 2 of 4 imaginary columns
 " should be called in a window with a single pane
