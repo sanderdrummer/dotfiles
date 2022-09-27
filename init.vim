@@ -1,6 +1,5 @@
 call plug#begin()
 	Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
-	Plug 'Pocco81/AutoSave.nvim'
         Plug 'preservim/nerdtree'
 	Plug 'psliwka/vim-smoothie'
 	Plug 'editorconfig/editorconfig-vim'
@@ -9,36 +8,92 @@ call plug#begin()
 	Plug 'neoclide/coc.nvim', {'branch': 'release'}
 	Plug 'tpope/vim-fugitive'
 	Plug 'windwp/nvim-autopairs'
-	Plug 'vim-airline/vim-airline'
-	Plug 'vim-airline/vim-airline-themes'
 	Plug 'nvim-lua/plenary.nvim' 
 	Plug 'ThePrimeagen/harpoon'
 	Plug 'akinsho/toggleterm.nvim', {'tag' : '*'}
 	Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+	Plug 'kdheepak/lazygit.nvim'
+	Plug 'lewis6991/gitsigns.nvim'
+	Plug 'kyazdani42/nvim-web-devicons'
+	Plug 'windwp/windline.nvim'
 call plug#end()
 
 let mapleader = " "
 
-lua << EOF
-require("toggleterm").setup{
-  open_mapping = [[<c-\>]],
-   }
-
-vim.keymap.set("n", "<leader>q",function() require("harpoon.mark").add_file() end , silent)
-vim.keymap.set("n", "<C-e>",function() require("harpoon.ui").toggle_quick_menu() end , silent)
-EOF
+set termguicolors
 
 set ignorecase
 set smartcase
 
 " theme
-set termguicolors     " enable true colors support
 colorscheme tokyonight-night
 set number relativenumber
 
-"airline already shows the mode
-let g:airline_theme='bubblegum'
-:set noshowmode
+lua << EOF
+
+require'nvim-web-devicons'.setup {
+ -- your personnal icons can go here (to override)
+ -- you can specify color or cterm_color instead of specifying both of them
+ -- DevIcon will be appended to `name`
+ override = {
+  zsh = {
+    icon = "",
+    color = "#428850",
+    cterm_color = "65",
+    name = "Zsh"
+  }
+ };
+ -- globally enable default icons (default to false)
+ -- will get overriden by `get_icons` option
+ default = true;
+}
+
+require('wlsample.bubble2')
+
+
+require'nvim-treesitter.configs'.setup{
+  ensure_installed = {},
+  sync_install = false,
+  ignore_install = {},
+  highlight = {
+    enable = true,
+    additional_vim_regex_highlighting = false,
+  },
+  context_commentstring = {
+    enable = true,
+    enable_autocmd = false,
+  },
+  rainbow = {
+    enable = true,
+    disable = { "html" },
+    extended_mode = false,
+    max_file_lines = nil,
+  },
+  autopairs = { enable = true },
+  autotag = { enable = true },
+  incremental_selection = { enable = true },
+  indent = { enable = false },
+}
+
+require('gitsigns').setup()
+
+require("toggleterm").setup{
+  size = 10,
+  open_mapping = [[<c-\>]],
+  shading_factor = 2,
+  direction = "float",
+  float_opts = {
+    border = "curved",
+    highlights = {
+      border = "Normal",
+      background = "Normal",
+    },
+  },
+   }
+
+vim.keymap.set("n", "<leader>q",function() require("harpoon.mark").add_file() end , silent)
+vim.keymap.set("n", "<C-e>",function() require("harpoon.ui").toggle_quick_menu() end , silent)
+EOF
 
 " prettier
 " :CocInstall coc-prettier
@@ -53,6 +108,10 @@ noremap  <silent> <C-S>    :update<CR>
 vnoremap <silent> <C-S>    <C-C>:update<CR>
 inoremap <silent> <C-S>    <C-O>:update<CR>
 noremap  <silent> <leader>s    :update<CR>
+
+" lazygit
+nnoremap <silent> <leader>gg :LazyGit<CR>
+
 
 " cmd p
 nnoremap <leader>ff <cmd>Telescope find_files<cr>
@@ -148,15 +207,6 @@ set updatetime=300
 " Don't pass messages to |ins-completion-menu|.
 set shortmess+=c
 
-" Always show the signcolumn, otherwise it would shift the text each time
-" diagnostics appear/become resolved.
-if has("nvim-0.5.0") || has("patch-8.1.1564")
-  " Recently vim can merge signcolumn and number column into one
-  set signcolumn=number
-else
-  set signcolumn=yes
-endif
-
 " Use tab for trigger completion with characters ahead and navigate.
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
 " other plugin before putting this into your config.
@@ -246,11 +296,6 @@ endif
 
 " Add `:Format` command to format current buffer.
 command! -nargs=0 Format :call CocActionAsync('format')
-
-" Add (Neo)Vim's native statusline support.
-" NOTE: Please see `:h coc-status` for integrations with external plugins that
-" provide custom statusline: lightline.vim, vim-airline.
-set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
 " Mappings for CoCList
 " Show all diagnostics.
