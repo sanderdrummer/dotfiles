@@ -67,4 +67,6 @@ clear_all_shortcuts yes
 #: instance, to remove the default shortcuts.
 map cmd+c       copy_to_clipboard
 map cmd+v       paste_from_clipboard
- copy_on_select yes
+map cmd+n       new_os_window
+map cmd+w       close_window
+copy_on_select yes
