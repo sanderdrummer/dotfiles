@@ -59,7 +59,7 @@ enabled_layouts Fat
 hide_window_decorations yes
 allow_hyperlinks yes
 macos_quit_when_last_window_closed yes
-macos_window_resizable no
+macos_window_resizable yes
 
 clear_all_shortcuts yes
 
