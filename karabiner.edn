@@ -15,7 +15,10 @@
 
     ;; https://ke-complex-modifications.pqrs.org/#mouse_keys_mode_v4
 {
- :simlayers {:sym-mode {:key :m }}
+ :simlayers {
+             :sym-mode {:key :comma }
+             :num-mode {:key :period }
+             }
  :main 
  [
     {:des "simultanious keycombos"
@@ -23,7 +26,7 @@
               [[:a :s] :left_control]
               [[:s :d] :left_option]
               [[:d :f] :left_command]
-              [[:a :f] :left_shift]
+              [[:s :f] :left_shift]
               [[:semicolon :l] :right_control]
               [[:l :k] :right_option]
               [[:k :j] :right_command]
@@ -59,7 +62,7 @@
               [:!Ea :!Of8]
             ]
     } 
-    {:des "m mode"
+    {:des "sym mode"
       :rules [
               [:e :!Sopen_bracket :sym-mode]
               [:r :!Sclose_bracket :sym-mode]
@@ -75,6 +78,19 @@
               [:t :!S7 :sym-mode]
             ]
     } 
+    {:des "num mode"
+      :rules [
+              [:x :1 :num-mode]
+              [:c :2 :num-mode]
+              [:v :3 :num-mode]
+              [:s :4 :num-mode]
+              [:d :5 :num-mode]
+              [:f :6 :num-mode]
+              [:w :7 :num-mode]
+              [:e :8 :num-mode]
+              [:r :9 :num-mode]
+              [:t :0 :num-mode]
+            ]
+    } 
   ]
 }
-
