@@ -18,6 +18,7 @@
  :simlayers {
              :sym-mode {:key :comma }
              :num-mode {:key :period }
+             :shiftnum-mode {:key :slash }
              }
  :main 
  [
@@ -55,7 +56,7 @@
               [:!Oj :!Of11]
               [:!Ok :!Of10]
               [:!Ol :!Of9]
-              [:!Esemicolon :!Of8]
+              [:!Osemicolon :!Of8]
               [:!Ef :!Of11]
               [:!Ed :!Of10]
               [:!Es :!Of9]
@@ -76,6 +77,9 @@
               [:q :!Shyphen :sym-mode]
               [:g :!S8 :sym-mode]
               [:t :!S7 :sym-mode]
+              [:z :grave_accent_and_tilde :sym-mode]
+              [:x :!Sgrave_accent_and_tilde :sym-mode]
+              [:b :!Sequal_sign :sym-mode]
             ]
     } 
     {:des "num mode"
@@ -92,5 +96,20 @@
               [:t :0 :num-mode]
             ]
     } 
+    {:des "shiftnum mode"
+      :rules [
+              [:x :!S1 :shiftnum-mode]
+              [:c :!S2 :shiftnum-mode]
+              [:v :!S3 :shiftnum-mode]
+              [:s :!S4 :shiftnum-mode]
+              [:d :!S5 :shiftnum-mode]
+              [:f :!S6 :shiftnum-mode]
+              [:w :!S7 :shiftnum-mode]
+              [:e :!S8 :shiftnum-mode]
+              [:r :!S9 :shiftnum-mode]
+              [:t :!S0 :shiftnum-mode]
+            ]
+    } 
   ]
 }
+
