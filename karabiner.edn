@@ -1,114 +1,80 @@
+    ;; !  | means mandatory
+    ;; #  | means optional
+    ;; C  | left_command
+    ;; T  | left_control
+    ;; O  | left_option
+    ;; S  | left_shift
+    ;; F  | fn
+    ;; Q  | right_command
+    ;; W  | right_control
+    ;; E  | right_option
+    ;; R  | right_shift
+    ;; P  | caps_lock
+    ;; !! | mandatory command + control + optional + shift (hyper)
+    ;; ## | optional any
+
+    ;; https://ke-complex-modifications.pqrs.org/#mouse_keys_mode_v4
 {
- :simlayers {
-             :f-mode {:key :f}    ; delimeters    ( ) [ ] { } and other symbols ~ $ &
-             :d-mode {:key :d}    ; arithmetic    + - * / = % < > #
-             :s-mode {:key :s}    ; punctuation   ? ! : ; ' " ` ~
-             :a-mode {:key :a}    ; navigation hjkl + tab + enter + page down/up
-             ;
-             :v-mode {:key :v}    ; Number pad with + - BS ENTER as well
-             :c-mode {:key :c}    ; Slashes and lines  ^ | \ _ @
-             }
-
- :main [
-        {:des "CAPSLOCK is CTRL if pressed in combination, otherwise ESC"
-         :rules  [
-            [:##caps_lock        :left_control     nil         {:alone :escape}]
-          ]}
-
-        {:des "f-mode for delimeters and ! ? $"
-         :rules [:f-mode
-                 ;; u i j k m comma -> !Sopen_bracket !Sclose_bracket !S9 !S0 open_bracket close_bracket
-                 [:##u :!Sopen_bracket]
-                 [:##i :!Sclose_bracket]
-                 [:##j :!S9]
-                 [:##k :!S0]
-                 [:##m :open_bracket]
-                 [:##comma :close_bracket]
-                 ;; o l period -> !S1 !Sslash !S4
-                 [:##o :!S1]
-                 [:##l :!Sslash]
-                 [:##period :!S4]
-                ]
-         }
-
-        {:des "d-mode for arithmetic"    ;;    < > #    + - =    * / %
-         :rules [:d-mode
-                  [:##u     :!Scomma]               ; d -> o        <
-                  [:##i    :!Speriod]               ; d -> p        >
-                  [:##o         :!S3]               ; d -> o        #
-
-                  [:##j         :!Sequal_sign]      ; d -> j        +
-                  [:##k         :hyphen]            ; d -> k        -
-                  [:##l         :equal_sign]        ; d -> l        =
-
-                  [:##m :!S8]                       ; d -> m        *
-                  [:##comma :slash]                 ; d -> ,        /
-                  [:##period :!S5]                  ; d -> .        %
-                ]
-         }
-
-        {:des "s-mode for punctuation"   ;;    ' " `    , . &    ; : ~
-         :rules [:s-mode
-                 [:##u :quote]
-                 [:##i :!Squote]
-                 [:##o :grave_accent_and_tilde]
-                 [:##j :comma]
-                 [:##k :period]
-                 [:##l :!S7]
-                 [:##m :semicolon]
-                 [:##comma :!Ssemicolon]
-                 [:##period :!Sgrave_accent_and_tilde]
-                ]
-         }
-
-        {:des "a-mode for hjkl movement and nm enter and ui tab and ,. PageDn/Up"
-         :rules [:a-mode
-                  [:##h :left_arrow]
-                  [:##j :down_arrow]
-                  [:##k :up_arrow]
-                  [:##l :right_arrow]
-                  [:##n :return_or_enter]
-                  [:##m :return_or_enter]
-                  [:##i :tab]
-                  [:comma :page_down]
-                  [:period :page_up]
-                  [:##u :delete_or_backspace]
-                ]
-         }
-
-        {:des "v-mode for number pad"
-         :rules [:v-mode
-                 [:u :7]
-                 [:i :8]
-                 [:o :9]
-                 [:j :4]
-                 [:k :5]
-                 [:l :6]
-                 [:m :1]
-                 [:comma :2]
-                 [:period :3]
-                 [:p :!Sequal_sign]
-                 [:semicolon :hyphen]
-                 [:slash :return_or_enter]
-                 [:y :delete_or_backspace]
-                 [:h :period]
-                 [:n :0]
-                ]
-        }
-
-        {:des "c-mode for remaining symbols ^ | \\ _ @"
-         :rules [:c-mode
-                 [:##u :!S6]
-                 [:##j :!Sbackslash]
-                 [:##k :!S2]
-                 [:##m :backslash]
-                 [:##comma :!Shyphen]
-                ]
-        }
- ]
+ :simlayers {:sym-mode {:key :m }}
+ :main 
+ [
+    {:des "simultanious keycombos"
+      :rules [
+              [[:a :s] :left_control]
+              [[:s :d] :left_option]
+              [[:d :f] :left_command]
+              [[:a :f] :left_shift]
+              [[:semicolon :l] :right_control]
+              [[:l :k] :right_option]
+              [[:k :j] :right_command]
+              [[:l :j] :right_shift]
+            ]
+    } 
+    {:des "shift space mods"
+      :rules [
+              [:!Sspacebar :equal_sign]
+            ]
+    } 
+    {:des "vim cursors"
+      :rules [
+              [:!Co :end]
+              [:!Ci :page_up]
+              [:!Cu :page_down]
+              [:!Cy :home]
+              [:!Ch :left_arrow]
+              [:!Cj :down_arrow]
+              [:!Ck :up_arrow]
+              [:!Cl :right_arrow]
+            ]
+    } 
+    {:des "amethyst"
+      :rules [
+              [:!Oj :!Of11]
+              [:!Ok :!Of10]
+              [:!Ol :!Of9]
+              [:!Esemicolon :!Of8]
+              [:!Ef :!Of11]
+              [:!Ed :!Of10]
+              [:!Es :!Of9]
+              [:!Ea :!Of8]
+            ]
+    } 
+    {:des "m mode"
+      :rules [
+              [:e :!Sopen_bracket :sym-mode]
+              [:r :!Sclose_bracket :sym-mode]
+              [:d :!S9 :sym-mode]
+              [:f :!S0 :sym-mode]
+              [:c :open_bracket :sym-mode]
+              [:v :close_bracket :sym-mode]
+              [:s :quote :sym-mode]
+              [:w :!Squote :sym-mode]
+              [:a :hyphen :sym-mode]
+              [:q :!Shyphen :sym-mode]
+              [:g :!S8 :sym-mode]
+              [:t :!S7 :sym-mode]
+            ]
+    } 
+  ]
 }
-
-
-
-
 
