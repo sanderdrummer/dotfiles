@@ -34,6 +34,12 @@
               [[:l :j] :right_shift]
             ]
     } 
+    {:des "mod mods"
+      :rules [
+              [:left_command :left_command nil {:alone  :tab}]
+              [:right_command :right_command nil {:alone  :return_or_enter}]
+            ]
+    } 
     {:des "shift space mods"
       :rules [
               [:!Sspacebar :equal_sign]
@@ -112,4 +118,5 @@
     } 
   ]
 }
+
 
