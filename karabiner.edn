@@ -16,9 +16,9 @@
     ;; https://ke-complex-modifications.pqrs.org/#mouse_keys_mode_v4
 {
  :simlayers {
-             :sym-mode {:key :comma }
-             :num-mode {:key :period }
-             :shiftnum-mode {:key :slash }
+             :sym-mode {:key :m }
+             :num-mode {:key :v }
+             :shiftnum-mode {:key :comma }
              }
  :main 
  [
@@ -27,11 +27,12 @@
               [[:a :s] :left_control]
               [[:s :d] :left_option]
               [[:d :f] :left_command]
-              [[:s :f] :left_shift]
+              [[:s :d :f] :!Cleft_option]
               [[:semicolon :l] :right_control]
               [[:l :k] :right_option]
               [[:k :j] :right_command]
-              [[:l :j] :right_shift]
+              [[:h :j :k] :!Creturn_or_enter]
+              [[:j :k :l] :!Cleft_option]
             ]
     } 
     {:des "mod mods"
@@ -84,23 +85,25 @@
               [:q :!Shyphen :sym-mode]
               [:g :!S8 :sym-mode]
               [:t :!S7 :sym-mode]
-              [:z :grave_accent_and_tilde :sym-mode]
-              [:x :!Sgrave_accent_and_tilde :sym-mode]
+              [:x :grave_accent_and_tilde :sym-mode]
+              [:z :!Sgrave_accent_and_tilde :sym-mode]
               [:b :!Sequal_sign :sym-mode]
             ]
     } 
     {:des "num mode"
       :rules [
-              [:x :1 :num-mode]
-              [:c :2 :num-mode]
-              [:v :3 :num-mode]
-              [:s :4 :num-mode]
-              [:d :5 :num-mode]
-              [:f :6 :num-mode]
-              [:w :7 :num-mode]
-              [:e :8 :num-mode]
-              [:r :9 :num-mode]
-              [:t :0 :num-mode]
+              [:m :1 :num-mode]
+              [:comma :2 :num-mode]
+              [:period :3 :num-mode]
+              [:j :4 :num-mode]
+              [:k :5 :num-mode]
+              [:l :6 :num-mode]
+              [:u :7 :num-mode]
+              [:i :8 :num-mode]
+              [:o :9 :num-mode]
+              [:p :0 :num-mode]
+              [:y :backslash :num-mode]
+              [:h :!Sbackslash :num-mode]
             ]
     } 
     {:des "shiftnum mode"
@@ -119,5 +122,3 @@
     } 
   ]
 }
-
-
