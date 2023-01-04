@@ -38,6 +38,7 @@
       :rules [
               [:left_command :left_command nil {:alone  :tab}]
               [:right_command :right_command nil {:alone  :return_or_enter}]
+              [:right_option :right_option nil {:alone :delete_or_backspace}]
             ]
     } 
     {:des "shift space mods"
