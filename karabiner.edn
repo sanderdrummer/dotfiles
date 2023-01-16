@@ -12,9 +12,20 @@
     ;; P  | caps_lock
     ;; !! | mandatory command + control + optional + shift (hyper)
     ;; ## | optional any
-
     ;; https://ke-complex-modifications.pqrs.org/#mouse_keys_mode_v4
 {
+:profiles {
+    :Default {
+        :default true
+        :sim     25     ;; simultaneous_threshold_milliseconds (def: 50)
+                        ;; if keydown event for two different keys are pressed within :sim ms, the keypresses are considered simultaneous
+        :delay   150    ;; to_delayed_action_delay_milliseconds (def: 500)
+                        ;; after :delay ms, the key press is considered to be delayed (used for double-press macros)
+        :alone   500    ;; to_if_alone_timeout_milliseconds (def: 1000)
+                        ;; if keyup event comes within :alone ms from keydown, the key is not just pressed but held
+        :held    500    ;; to_if_held_down_threshold_milliseconds (def: 500)
+    }
+} ;; profiles
  :simlayers {
              :sym-mode {:key :m }
              :num-mode {:key :v }
@@ -31,13 +42,15 @@
               [[:semicolon :l] :right_control]
               [[:l :k] :right_option]
               [[:k :j] :right_command]
-              [[:h :j :k] :!Creturn_or_enter]
-              [[:j :k :l] :!Cleft_option]
+              [[:c :v] :return_or_enter]
+              [[:semicolon :l] :right_control]
             ]
     } 
     {:des "mod mods"
       :rules [
               [:left_command :left_command nil {:alone  :tab}]
+              [:caps_lock :left_control nil {:alone  :escape}]
+              [:escape :left_control nil {:alone  :escape}]
               [:right_command :right_command nil {:alone  :return_or_enter}]
               [:right_option :right_option nil {:alone :delete_or_backspace}]
             ]
@@ -83,8 +96,8 @@
               [:w :!Squote :sym-mode]
               [:a :hyphen :sym-mode]
               [:q :!Shyphen :sym-mode]
-              [:g :!S8 :sym-mode]
-              [:t :!S7 :sym-mode]
+              [:g :!Sbackslash :sym-mode]
+              [:t :backslash :sym-mode]
               [:x :grave_accent_and_tilde :sym-mode]
               [:z :!Sgrave_accent_and_tilde :sym-mode]
               [:b :!Sequal_sign :sym-mode]
@@ -102,6 +115,8 @@
               [:i :8 :num-mode]
               [:o :9 :num-mode]
               [:p :0 :num-mode]
+              [:d :left_command :num-mode]
+              [:s :left_option :num-mode]
               [:y :backslash :num-mode]
               [:h :!Sbackslash :num-mode]
             ]
@@ -122,3 +137,5 @@
     } 
   ]
 }
+
+
