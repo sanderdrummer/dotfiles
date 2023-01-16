@@ -57,16 +57,24 @@ enabled_layouts Fat
 #: window manager/operating system. Note that the effects of changing
 #: this option when reloading config are undefined.
 hide_window_decorations yes
-allow_hyperlinks yes
+allow_hyperlinks no
 macos_quit_when_last_window_closed yes
 macos_window_resizable yes
 
-clear_all_shortcuts yes
+clear_all_shortcuts no
 
 #: Remove all shortcut definitions up to this point. Useful, for
 #: instance, to remove the default shortcuts.
 map cmd+c       copy_to_clipboard
 map cmd+v       paste_from_clipboard
 map cmd+n       new_os_window
-map cmd+w       close_window
 copy_on_select yes
+map cmd+1 goto_tab 1
+map cmd+2 goto_tab 2
+map cmd+3 goto_tab 3
+map cmd+4 goto_tab 4
+map cmd+5 goto_tab 5
+map cmd+6 goto_tab 6
+map cmd+7 goto_tab 7
+map cmd+8 goto_tab 8
+map cmd+9 goto_tab 9
