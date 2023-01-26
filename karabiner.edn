@@ -77,11 +77,6 @@
               [:!Cl :right_arrow]
             ]
     } 
-    {:des "equals to f1f"
-      :rules [
-              [:!COequal_sign :f12]
-            ]
-    } 
     {:des "amethyst"
       :rules [
               [:!Oj :!Of11]
