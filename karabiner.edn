@@ -17,7 +17,7 @@
 :profiles {
     :Default {
         :default true
-        :sim     25     ;; simultaneous_threshold_milliseconds (def: 50)
+        :sim     40     ;; simultaneous_threshold_milliseconds (def: 50)
                         ;; if keydown event for two different keys are pressed within :sim ms, the keypresses are considered simultaneous
         :delay   150    ;; to_delayed_action_delay_milliseconds (def: 500)
                         ;; after :delay ms, the key press is considered to be delayed (used for double-press macros)
@@ -39,11 +39,10 @@
               [[:s :d] :left_option]
               [[:d :f] :left_command]
               [[:s :d :f] :!Cleft_option]
-              [[:semicolon :l] :right_control]
               [[:l :k] :right_option]
               [[:k :j] :right_command]
-              [[:c :v] :return_or_enter]
-              [[:semicolon :l] :right_control]
+              [[:j :l] :return_or_enter]
+              [[:s :f] :tab]
             ]
     } 
     {:des "mod mods"
@@ -55,9 +54,15 @@
               [:right_option :right_option nil {:alone :delete_or_backspace}]
             ]
     } 
+    {:des "opt c is ctrl c as well"
+      :rules [
+              [:!Ec :!Wc]
+            ]
+    } 
     {:des "shift space mods"
       :rules [
               [:!Sspacebar :equal_sign]
+              [:!Rspacebar :equal_sign]
             ]
     } 
     {:des "vim cursors"
@@ -70,6 +75,11 @@
               [:!Cj :down_arrow]
               [:!Ck :up_arrow]
               [:!Cl :right_arrow]
+            ]
+    } 
+    {:des "equals to f1f"
+      :rules [
+              [:!COequal_sign :f12]
             ]
     } 
     {:des "amethyst"
@@ -119,6 +129,8 @@
               [:s :left_option :num-mode]
               [:y :backslash :num-mode]
               [:h :!Sbackslash :num-mode]
+              [:c :left_command :num-mode]
+              [:x :left_option :num-mode]
             ]
     } 
     {:des "shiftnum mode"
@@ -137,5 +149,3 @@
     } 
   ]
 }
-
-
