@@ -1,0 +1,14 @@
+let mapleader = " "
+
+set NERDTree
+
+set number relativenumber
+
+nnoremap <leader>ff :action SearchEverywhere <CR>
+nnoremap <leader>fo :action RecentFiles <CR>
+nnoremap <leader>w :action SaveAll <CR>
+nnoremap <leader>t :action Terminal.OpenInTerminal <CR>
+nnoremap <leader>e :action NERDTree<CR>
+nnoremap <leader>o :action NERDTreeFocus<CR>
+nnoremap <leader>d :action Back<cr>
+nnoremap <leader>dd :action Forward<cr>
