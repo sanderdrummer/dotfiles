@@ -43,26 +43,14 @@
               [[:k :j] :right_command]
               [[:j :l] :return_or_enter]
               [[:s :f] :tab]
+              [[:a :f] :escape]
+              [[:j :semicolon] :equal_sign]
             ]
     } 
     {:des "mod mods"
       :rules [
-              [:left_command :left_command nil {:alone  :tab}]
               [:caps_lock :left_control nil {:alone  :escape}]
               [:escape :left_control nil {:alone  :escape}]
-              [:right_command :right_command nil {:alone  :return_or_enter}]
-              [:right_option :right_option nil {:alone :delete_or_backspace}]
-            ]
-    } 
-    {:des "opt c is ctrl c as well"
-      :rules [
-              [:!Ec :!Wc]
-            ]
-    } 
-    {:des "shift space mods"
-      :rules [
-              [:!Sspacebar :equal_sign]
-              [:!Rspacebar :equal_sign]
             ]
     } 
     {:des "vim cursors"
@@ -75,6 +63,7 @@
               [:!Cj :down_arrow]
               [:!Ck :up_arrow]
               [:!Cl :right_arrow]
+              [:!Cm :!CS4]
             ]
     } 
     {:des "amethyst"
@@ -144,3 +133,5 @@
     } 
   ]
 }
+
+
