@@ -1,4 +1,4 @@
-# vim:fileencoding=utf-8:foldmethod=marker
+ vim:fileencoding=utf-8:foldmethod=marker
 #: kitty has very powerful font management. You can configure
 #: individual font faces and even specify special fonts for particular
 #: characters.
@@ -47,7 +47,8 @@ color15 #c0caf5
 color16 #ff9e64
 color17 #db4b4b
 
-font_size 16.0
+font_size 18.0
+font_family DejaVuSansMono
 
 cursor #cccccc
 enabled_layouts Fat 
@@ -78,3 +79,5 @@ map cmd+6 goto_tab 6
 map cmd+7 goto_tab 7
 map cmd+8 goto_tab 8
 map cmd+9 goto_tab 9
+map cmd+t new_tab_with_cwd
+map cmd+e send_text all :execute "normal \<d-e>"\r
