@@ -14,6 +14,9 @@
     ;; ## | optional any
     ;; https://ke-complex-modifications.pqrs.org/#mouse_keys_mode_v4
 {
+ :devices {
+           :mac [{:vendor_id 1452 :product_id 835}]
+           }
 :profiles {
     :Default {
         :default true
@@ -33,8 +36,15 @@
              }
  :main 
  [
+    {:des "zoooom"
+     :rules [
+             [:!Ocomma :!CSequal_sign]
+             [:!Operiod :!Chyphen]
+             ] 
+    }
     {:des "simultanious keycombos"
       :rules [
+              [:condi :mac]
               [[:a :s] :left_control]
               [[:s :d] :left_option]
               [[:d :f] :left_command]
@@ -49,6 +59,7 @@
     } 
     {:des "mod mods"
       :rules [
+              [:condi :mac]
               [:caps_lock :left_control nil {:alone  :escape}]
               [:escape :left_control nil {:alone  :escape}]
             ]
@@ -80,6 +91,7 @@
     } 
     {:des "sym mode"
       :rules [
+              [:condi :mac]
               [:e :!Sopen_bracket :sym-mode]
               [:r :!Sclose_bracket :sym-mode]
               [:d :!S9 :sym-mode]
@@ -99,6 +111,7 @@
     } 
     {:des "num mode"
       :rules [
+              [:condi :mac]
               [:m :1 :num-mode]
               [:comma :2 :num-mode]
               [:period :3 :num-mode]
@@ -119,6 +132,7 @@
     } 
     {:des "shiftnum mode"
       :rules [
+              [:condi :mac]
               [:x :!S1 :shiftnum-mode]
               [:c :!S2 :shiftnum-mode]
               [:v :!S3 :shiftnum-mode]
