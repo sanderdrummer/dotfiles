@@ -1,5 +1,5 @@
 # dotfiles
 
-[AstroNvim Config](https://github.com/sanderdrummer/astro-vim-config)
+[AstroNvim Config](https://github.com/sanderdrummer/astronvimconfig)
 
-[zmk](https://github.com/sanderdrummer/zmk-config-adv360)
+[zmk](https://github.com/sanderdrummer/Adv360-Pro-ZMK/tree/V3.0)
