@@ -1,14 +1,33 @@
 let mapleader = " "
 
 set NERDTree
+set highlightedyank
+set incsearch
+set ideastrictmode
+set which-key
+
 
 set number relativenumber
 
-nnoremap <leader>ff :action SearchEverywhere <CR>
-nnoremap <leader>fo :action RecentFiles <CR>
-nnoremap <leader>w :action SaveAll <CR>
-nnoremap <leader>t :action Terminal.OpenInTerminal <CR>
-nnoremap <leader>e :action NERDTree<CR>
-nnoremap <leader>o :action NERDTreeFocus<CR>
-nnoremap <leader>d :action Back<cr>
-nnoremap <leader>dd :action Forward<cr>
+inoremap jj <Esc>
+inoremap jk <Esc>
+
+nmap <leader>ff :action SearchEverywhere <CR>
+nmap <leader>fo :action RecentFiles <CR>
+nmap <leader>w :action SaveAll <CR>
+nmap <leader>t :action Terminal.OpenInTerminal <CR>
+nmap <leader>o <Action>(NERDTreeFocus)
+nmap <leader>e <Action>(SelectInProjectView)
+nmap <leader>c <Action>(CloseContent)
+nmap <leader>rn <Action>(RenameElement)
+nmap <leader>p <Action>(PasteMultiple)
+nmap <leader>l <Action>(ShowIntentionActions)
+
+" system clipboard
+vmap <leader>y "+y
+vmap <leader>d "+d
+nmap <leader>y "+yy
+nmap <leader>P "+P
+vmap <leader>p "+p
+vmap <leader>P "+P
+set clipboard+=unnamed
