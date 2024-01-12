@@ -18,6 +18,7 @@ nmap <leader>w :action SaveAll <CR>
 nmap <leader>t :action Terminal.OpenInTerminal <CR>
 nmap <leader>o <Action>(NERDTreeFocus)
 nmap <leader>e <Action>(SelectInProjectView)
+nmap <leader>ee <Action>(ShowNavBar)
 nmap <leader>c <Action>(CloseContent)
 nmap <leader>rn <Action>(RenameElement)
 nmap <leader>p <Action>(PasteMultiple)
