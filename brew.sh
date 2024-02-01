@@ -11,7 +11,7 @@ brew install --cask doll
 brew install lazygit
 brew install ripgrep
 brew install bottom
-
+brew install --cask kitty
 
 
 npm install tree-sitter-cli
