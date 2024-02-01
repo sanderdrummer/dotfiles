@@ -75,7 +75,7 @@
               [:!Cj :down_arrow]
               [:!Ck :up_arrow]
               [:!Cl :right_arrow]
-              [:!Cm :!CS4]
+              [:!Csemicolon :!CS4]
             ]
     } 
     {:des "amethyst"
@@ -84,6 +84,7 @@
               [:!Ok :!Of10]
               [:!Ol :!Of9]
               [:!Osemicolon :!Of8]
+              [:!Om :!Cm]
               [:!Ef :!Of11]
               [:!Ed :!Of10]
               [:!Es :!Of9]
@@ -158,4 +159,3 @@
     } 
   ]
 }
-
