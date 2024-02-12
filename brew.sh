@@ -20,5 +20,7 @@ brew install imagemagick
 luarocks --local --lua-version=5.1 install magick
 
 
+brew install MonitorControl
+
 
 npm install tree-sitter-cli -g
