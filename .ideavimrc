@@ -23,6 +23,10 @@ nmap <leader>c <Action>(CloseContent)
 nmap <leader>rn <Action>(RenameElement)
 nmap <leader>p <Action>(PasteMultiple)
 nmap <leader>l <Action>(ShowIntentionActions)
+nmap <leader>ld <Action>(ShowErrorDescription)
+nmap <leader>/ <Action>(CommentByLineComment)
+
+
 
 " system clipboard
 vmap <leader>y "+y
