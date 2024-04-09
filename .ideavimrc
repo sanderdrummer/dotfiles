@@ -25,6 +25,7 @@ nmap <leader>p <Action>(PasteMultiple)
 nmap <leader>l <Action>(ShowIntentionActions)
 nmap <leader>ld <Action>(ShowErrorDescription)
 nmap <leader>/ <Action>(CommentByLineComment)
+nmap <leader>gb <Action>(Git.Branches)
 
 
 
