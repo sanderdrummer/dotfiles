@@ -12,8 +12,9 @@ set number relativenumber
 inoremap jj <Esc>
 inoremap jk <Esc>
 
-nmap <leader>ff :action SearchEverywhere <CR>
+nmap <leader>ff :action GotoFile <CR>
 nmap <leader>fo :action RecentFiles <CR>
+nmap <leader>fw :action FindInPath <CR>
 nmap <leader>w :action SaveAll <CR>
 nmap <leader>t :action Terminal.OpenInTerminal <CR>
 nmap <leader>o <Action>(NERDTreeFocus)
