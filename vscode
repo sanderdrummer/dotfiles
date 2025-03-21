@@ -1,0 +1,115 @@
+{
+  "vim.leader": "<space>",
+  "vim.useSystemClipboard": true,
+  "vim.hlsearch": true,
+  "vim.incsearch": true,
+  "vim.easymotion": true,
+  "vim.sneak": true,
+  "vim.visualstar": true,
+  "vim.handleKeys": {
+    "<C-d>": true,
+    "<C-u>": true
+  },
+    
+  // Add highlighted yank settings
+  "vim.highlightedyank.enable": true,
+  "vim.highlightedyank.duration": 200,
+  "vim.highlightedyank.color": "rgba(250, 240, 170, 0.5)",
+
+  "editor.lineNumbers": "relative",
+
+  // Visual settings
+  "editor.fontSize": 14,
+  "editor.fontFamily": "JetBrainsMono Nerd Font", 
+
+  // LSP-like settings
+  "editor.formatOnSave": true,
+  "editor.suggestSelection": "first",
+
+  "workbench.colorTheme": "Default Dark Modern",
+  "workbench.editor.showTabs": false,
+  "git.openRepositoryInParentFolders": "never",
+  "[typescript]": {},
+  "vim.insertModeKeyBindings": [
+    {
+      "before": ["j", "k"],
+      "after": ["<Esc>"],
+      "commands": ["workbench.action.files.save"]
+    },
+    {
+      "before": ["j", "j"],
+      "after": ["<Esc>"]
+    }
+  ],
+  "vim.normalModeKeyBindingsNonRecursive": [
+    // File explorer (like Neo-tree)
+    {
+      "before": ["<leader>", "e"],
+      "commands": ["workbench.view.explorer"]
+    },
+    // Find files (like Telescope)
+    {
+      "before": ["<leader>", "f", "f"],
+      "commands": ["workbench.action.quickOpen"]
+    },
+    // Find in files (grep)
+    {
+      "before": ["<leader>", "f", "g"],
+      "commands": ["workbench.action.findInFiles"]
+    },
+    // Buffer management
+    {
+      "before": ["<leader>", "b", "b"],
+      "commands": ["workbench.action.showAllEditorsByMostRecentlyUsed"]
+    },
+    // LSP actions
+    {
+      "before": ["g", "d"],
+      "commands": ["editor.action.revealDefinition"]
+    },
+    {
+      "before": ["g", "r"],
+      "commands": ["editor.action.goToReferences"]
+    },
+    {
+      "before": ["K"],
+      "commands": ["editor.action.showHover"]
+    },
+    // Terminal
+    {
+      "before": ["<leader>", "t", "t"],
+      "commands": ["workbench.action.terminal.toggleTerminal"]
+    },
+    // Dashboard
+    {
+      "before": ["<leader>", "d"],
+      "commands": ["workbench.view.extension.dashboard-webview"]
+    },
+    // Focus editor
+    {
+      "before": ["<leader>", "o"],
+      "commands": ["workbench.action.focusActiveEditorGroup"]
+    },
+    {
+      "before": ["<C-e>"],
+      "commands": ["workbench.action.showAllEditorsByMostRecentlyUsed"]
+    },
+    // Save file
+    {
+      "before": ["<leader>", "w"],
+      "commands": ["workbench.action.files.save"]
+    }
+  ],
+
+  "vim.visualModeKeyBindingsNonRecursive": [
+    // Stay in visual mode when indenting
+    {
+      "before": [">"],
+      "commands": ["editor.action.indentLines"]
+    },
+    {
+      "before": ["<"],
+      "commands": ["editor.action.outdentLines"]
+    }
+  ]
+}
