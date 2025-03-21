@@ -1,4 +1,6 @@
 {
+  "emmet.enabled": false,
+  "workbench.tips.enabled": false,
   "vim.leader": "<space>",
   "vim.useSystemClipboard": true,
   "vim.hlsearch": true,
@@ -8,6 +10,7 @@
   "vim.visualstar": true,
   "vim.handleKeys": {
     "<C-d>": true,
+    "<C-w>": true,
     "<C-u>": true
   },
 
@@ -26,8 +29,8 @@
   "editor.formatOnSave": true,
   "editor.suggestSelection": "first",
 
-  "workbench.colorTheme": "Default Dark Modern",
-  "workbench.editor.showTabs": false,
+  "workbench.colorTheme": "Tokyo Night",
+  "workbench.editor.showTabs": "single",
   "workbench.activityBar.location": "hidden",
   "git.openRepositoryInParentFolders": "never",
   "[typescript]": {},
@@ -43,10 +46,43 @@
     }
   ],
   "vim.normalModeKeyBindingsNonRecursive": [
+    // Toggle left sidebar (Explorer, SCM, etc.)
+    {
+      "before": ["<leader>", "["],
+      "commands": ["workbench.action.toggleSidebarVisibility"]
+    },
+
+    // Toggle right sidebar (Outline, etc.)
+    {
+      "before": ["<leader>", "]"],
+      "commands": ["workbench.action.toggleAuxiliaryBar"]
+    },
+
+    // Focus primary sidebar when open
+    {
+      "before": ["<leader>", "{"],
+      "commands": ["workbench.action.focusSideBar"]
+    },
+
+    // Focus secondary sidebar when open
+    {
+      "before": ["<leader>", "}"],
+      "commands": ["workbench.action.focusAuxiliaryBar"]
+    },
+    // Create vertical split
+    {
+      "before": ["<leader>", "|"],
+      "commands": ["workbench.action.splitEditorRight"]
+    },
     // File explorer (like Neo-tree)
     {
       "before": ["<leader>", "E"],
       "commands": ["workbench.view.explorer"]
+    },
+    // Git view
+    {
+      "before": ["<leader>", "g", "g"],
+      "commands": ["workbench.view.scm"]
     },
     // Find files (like Telescope)
     {
@@ -107,7 +143,7 @@
     },
     // Focus breadcrumb navigation
     {
-      "before": ["<leader>", "e"],
+      "before": ["<leader>", "e", "e"],
       "commands": ["breadcrumbs.focus"]
     }
   ],
@@ -122,5 +158,6 @@
       "before": ["<"],
       "commands": ["editor.action.outdentLines"]
     }
-  ]
+  ],
+  "window.commandCenter": false
 }
