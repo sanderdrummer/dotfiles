@@ -10,7 +10,7 @@
     "<C-d>": true,
     "<C-u>": true
   },
-    
+
   // Add highlighted yank settings
   "vim.highlightedyank.enable": true,
   "vim.highlightedyank.duration": 200,
@@ -20,7 +20,7 @@
 
   // Visual settings
   "editor.fontSize": 14,
-  "editor.fontFamily": "JetBrainsMono Nerd Font", 
+  "editor.fontFamily": "JetBrainsMono Nerd Font",
 
   // LSP-like settings
   "editor.formatOnSave": true,
@@ -28,6 +28,7 @@
 
   "workbench.colorTheme": "Default Dark Modern",
   "workbench.editor.showTabs": false,
+  "workbench.activityBar.location": "hidden",
   "git.openRepositoryInParentFolders": "never",
   "[typescript]": {},
   "vim.insertModeKeyBindings": [
@@ -44,7 +45,7 @@
   "vim.normalModeKeyBindingsNonRecursive": [
     // File explorer (like Neo-tree)
     {
-      "before": ["<leader>", "e"],
+      "before": ["<leader>", "E"],
       "commands": ["workbench.view.explorer"]
     },
     // Find files (like Telescope)
@@ -98,6 +99,16 @@
     {
       "before": ["<leader>", "w"],
       "commands": ["workbench.action.files.save"]
+    },
+    // Close panel
+    {
+      "before": ["<leader>", "t", "c"],
+      "commands": ["workbench.action.closePanel"]
+    },
+    // Focus breadcrumb navigation
+    {
+      "before": ["<leader>", "e"],
+      "commands": ["breadcrumbs.focus"]
     }
   ],
 
