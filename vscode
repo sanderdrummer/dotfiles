@@ -33,7 +33,6 @@
   "workbench.editor.showTabs": "single",
   "workbench.activityBar.location": "hidden",
   "git.openRepositoryInParentFolders": "never",
-  "[typescript]": {},
   "vim.insertModeKeyBindings": [
     {
       "before": ["j", "k"],
@@ -145,6 +144,19 @@
     {
       "before": ["<leader>", "e", "e"],
       "commands": ["breadcrumbs.focus"]
+    },
+    // Auto import - trigger "Add Missing Imports" source action
+    {
+      "before": ["<leader>", "l", "s"],
+      "commands": [
+        {
+          "command": "editor.action.sourceAction",
+          "args": {
+            "kind": "source.addMissingImports",
+            "apply": "first"
+          }
+        }
+      ]
     }
   ],
 
@@ -159,5 +171,55 @@
       "commands": ["editor.action.outdentLines"]
     }
   ],
-  "window.commandCenter": false
+  "window.commandCenter": false,
+  // Set Prettier as default formatter for various file types
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[scss]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[markdown]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[yaml]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascript.module]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[vue]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[graphql]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "files.associations": {
+    "*.mjs": "javascript.module",
+    "*.cjs": "javascript"
+  },
+  "prettier.documentSelectors": [
+    "**/*.{ts,tsx,js,jsx,json,html,css,scss,md,yaml,yml,mjs,cjs}"
+  ]
 }
