@@ -3,9 +3,10 @@
 brew install node
 brew install neovim
 
+
 brew install bruno
 brew install sqlite
-brew install --cask amethyst
+brew install --cask nikitabobko/tap/aerospace
 brew install --cask karabiner-elements
 brew install yqrashawn/goku/goku
 brew install --cask doll
