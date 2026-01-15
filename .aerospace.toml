@@ -45,10 +45,7 @@ automatically-unhide-macos-hidden-apps = false
 # even when they are invisible.
 # This config version is only available since 'config-version = 2'
 # Fallback value (if you omit the key): persistent-workspaces = []
-persistent-workspaces = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "A", "B",
-                         "C", "D", "E", "F", "G", "I", "M", "N", "O", "P", "Q",
-                         "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
-
+persistent-workspaces = ["1", "2", "3", "4", "5", "6", "7", "8", "9"] 
 # A callback that runs every time binding mode changes
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
 # See: https://nikitabobko.github.io/AeroSpace/commands#mode
@@ -113,13 +110,17 @@ on-mode-changed = []
     alt-b = 'layout accordion horizontal vertical'
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#focus
-    alt-h = 'focus left'
-    alt-l = 'focus right'
-    # alt-j = 'focus down'
-    # alt-k = 'focus up'
+    alt-j = 'focus dfs-next --boundaries-action wrap-around-the-workspace'
+    alt-k = 'focus dfs-prev --boundaries-action wrap-around-the-workspace'
+    alt-h = 'workspace prev'
+    alt-l = 'workspace next'
 
-    alt-j = 'focus-back-and-forth'
-    alt-k = 'workspace-back-and-forth'
+    alt-y = 'join-with left' 
+    alt-u = 'join-with down' 
+    alt-i = 'join-with up' 
+    alt-o = 'join-with right' 
+    # alt-j = 'focus-back-and-forth'
+    # alt-k = 'workspace-back-and-forth'
 
     alt-f = 'fullscreen'
 
